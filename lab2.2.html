@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Flex Layout</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Header & Footer */
+    .header, .footer {
+      background: #d8d3b5;
+      padding: 70px;
+      border: 2px solid red;
+    }
+
+    /* Main container */
+    .container {
+      display: flex;
+      flex-direction: column; /* default: stacked */
+    }
+
+    /* Sections */
+    .left, .right {
+      background: #5aa657;
+      border: 2px solid yellow;
+      padding: 20px;
+      min-height: 200px;
+    }
+
+    /* 🔽 400px and below */
+    @media (max-width: 400px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .right {
+        order: 1; /* lalabas sa taas */
+      }
+
+      .left {
+        order: 2;
+      }
+    }
+
+    /* 🔼 800px and above */
+    @media (min-width: 800px) {
+      .container {
+        flex-direction: row;
+      }
+
+      .left {
+        flex: 1;   /* mas maliit */
+      }
+
+      .right {
+        flex: 3;   /* mas malaki */
+      }
+
+      .left {
+        order: 1;
+      }
+
+      .right {
+        order: 2;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <header class="header">
+    This is a Header
+  </header>
+
+  <main class="container">
+    <section class="left">
+      Section left-nav
+    </section>
+
+    <section class="right">
+      Section right-nav
+    </section>
+  </main>
+
+  <footer class="footer">
+    This is a footer
+  </footer>
+
+</body>
+</html>
